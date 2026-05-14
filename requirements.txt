@@ -1,8 +1,8 @@
 streamlit
+joblib
+numpy
+pandas
 scikit-learn==1.6.1
 shap==0.49.1
-numpy==2.0.2
-pandas==2.2.2
 matplotlib
-joblib
 xgboost
