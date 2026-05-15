@@ -1,2 +1,0 @@
-# ChurnSense — Customer Churn Prediction
-
