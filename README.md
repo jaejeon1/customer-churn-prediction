@@ -4,8 +4,6 @@
 
 <img width="1363" height="804" alt="Screenshot 2026-05-15 at 03 23 16" src="https://github.com/user-attachments/assets/5a7ee8e5-661b-41d2-a7db-a2ed53687f29" />
 
-<img width="1173" height="596" alt="Screenshot 2026-05-15 at 03 23 25" src="https://github.com/user-attachments/assets/52d5c4c9-af99-4fb5-9ed8-274ec8f0e0b0" />
-
 ---
 
 ## 🧩 The Business Problem
