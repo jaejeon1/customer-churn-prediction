@@ -1,9 +1,18 @@
 #!/bin/bash
-# ChurnSense — Start both FastAPI and Streamlit
-cd "$(dirname "$0")"
+cd ~/Desktop/p5final
 source venv/bin/activate
-echo "✅ Starting FastAPI on http://localhost:8000"
+
+echo "✅ Starting FastAPI..."
 uvicorn main:app --reload &
-sleep 3
-echo "✅ Starting Streamlit on http://localhost:8501"
-streamlit run app.py
+
+echo "✅ Starting Streamlit..."
+streamlit run app.py &
+
+sleep 4
+
+echo "✅ Opening browser tabs..."
+open http://localhost:8501
+open http://localhost:8000/docs
+
+wait
+EOF
