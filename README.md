@@ -2,14 +2,15 @@
 
 > *Identifying at-risk customers before they leave — with explainable AI*
 
-🔗 **Live App:** [ChurnSense on Streamlit](YOUR_STREAMLIT_URL)
-📁 **GitHub:** [customer-churn-prediction](YOUR_GITHUB_URL)
+<img width="1363" height="804" alt="Screenshot 2026-05-15 at 03 23 16" src="https://github.com/user-attachments/assets/5a7ee8e5-661b-41d2-a7db-a2ed53687f29" />
+
+<img width="1173" height="596" alt="Screenshot 2026-05-15 at 03 23 25" src="https://github.com/user-attachments/assets/52d5c4c9-af99-4fb5-9ed8-274ec8f0e0b0" />
 
 ---
 
 ## 🧩 The Business Problem
 
-Every month, thousands of telecom customers quietly decide to leave —
+Every month, thousands of telecom customers quietly decide to leave
 and most companies don't know until it's too late.
 
 | Metric | Value |
@@ -209,7 +210,7 @@ customer-churn-prediction/
 
 ```bash
 # Clone the repo
-git clone https://github.com/YOUR_USERNAME/customer-churn-prediction.git
+git clone https://github.com/jaejeon1/customer-churn-prediction.git
 cd customer-churn-prediction
 
 # Create virtual environment with Python 3.12
@@ -286,11 +287,3 @@ chmod +x start.sh
 | Streamlit | Web application frontend |
 
 ---
-
-## 👤 Author
-
-**YOUR NAME** — Data Analytics Portfolio Project
-Google Data Analytics Certificate · Google Business Intelligence Certificate (2025)
-
-📧 YOUR_EMAIL
-🔗 YOUR_LINKEDIN
