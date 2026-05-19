@@ -29,14 +29,6 @@ and most companies don't know until it's too late.
 churn probability in real time and explains *why* so retention teams
 can act before it's too late.
 
-| Metric | Score |
-|---|---|
-| AUC-ROC | **0.900** |
-| Recall | **0.940** — catches 94% of actual churners |
-| Precision | **0.520** |
-| Decision Threshold | **0.35** (optimised for recall) |
-| Selected Model | **Logistic Regression** |
-
 ---
 
 ## 🏗 Architecture
@@ -135,6 +127,16 @@ customer-churn-prediction/
 | ✅ **Logistic Regression** | **0.900** | **0.940** | 0.520 | 0.670 | **235** |
 | XGBoost | 0.892 | 0.852 | 0.585 | 0.694 | 308 |
 | Random Forest | 0.895 | 0.621 | 0.698 | 0.658 | 788 |
+
+
+| Metric | Score |
+|---|---|
+| AUC-ROC | **0.900** |
+| Recall | **0.940** — catches 94% of actual churners |
+| Precision | **0.520** |
+| Decision Threshold | **0.35** (optimised for recall) |
+| Selected Model | **Logistic Regression** |
+
 
 **Why Logistic Regression?**
 - Highest recall catches 94% of actual churners
