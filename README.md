@@ -19,14 +19,14 @@ and most companies don't know until it's too late.
 | Annual revenue at risk | **€5.46 million** |
 
 > The retention team had no way to identify *who* was about to leave
-> until they already had. They were reacting — not preventing.
+> until they already had. They were reacting, not preventing.
 
 ---
 
 ## 💡 The Solution
 
 **ChurnSense** is a machine learning system that scores every customer's
-churn probability in real time — and explains *why* — so retention teams
+churn probability in real time and explains *why* so retention teams
 can act before it's too late.
 
 | Metric | Score |
@@ -57,7 +57,7 @@ Customer Data (P5_customer_churn.csv)
   Business User sees Result + Recommendations
 ```
 
-**Deployment:** Local (laptop) — run `./start.sh` to launch both
+**Deployment:** Local (laptop): run `./start.sh` to launch both
 FastAPI backend and Streamlit frontend simultaneously.
 
 ---
@@ -68,7 +68,7 @@ FastAPI backend and Streamlit frontend simultaneously.
 customer-churn-prediction/
 │
 ├── app.py                  # Streamlit web application (frontend)
-├── main.py                 # FastAPI backend — /predict endpoint
+├── main.py                 # FastAPI backend /predict endpoint
 ├── requirements.txt        # Python dependencies
 ├── start.sh                # One-command startup script
 ├── README.md               # Project documentation
@@ -137,10 +137,10 @@ customer-churn-prediction/
 | Random Forest | 0.895 | 0.621 | 0.698 | 0.658 | 788 |
 
 **Why Logistic Regression?**
-- Highest recall — catches 94% of actual churners
+- Highest recall catches 94% of actual churners
 - Only 235 missed churners vs 788 for Random Forest
 - Fully interpretable coefficients for stakeholder communication
-- Lower computational cost for real-time scoring
+- Lower computational cost for real time scoring
 
 ---
 
@@ -148,17 +148,17 @@ customer-churn-prediction/
 
 | Finding | Detail |
 |---|---|
-| Contract type is #1 churn driver | Month-to-Month = **45.2% churn** vs **2.4%** annual — 19x difference |
-| Early tenure is highest-risk window | **41% churn in first 6 months** → drops to 3% after 5 years |
+| Contract type is #1 churn driver | Month-to-Month = **45.2% churn** vs **2.4%** annual: 19x difference |
+| Early tenure is highest risk window | **41% churn in first 6 months** → drops to 3% after 5 years |
 | Support calls signal frustration | 3+ calls in 6 months = strong churn indicator |
 | Spend and region are NOT predictive | Churn rate flat (~26%) across all spend tiers and regions |
-| Satisfaction score is a weak signal | Likely data quality issue — flagged for investigation |
+| Satisfaction score is a weak signal | Likely data quality issue flagged for investigation |
 
 ---
 
 ## 🔍 Top Churn Drivers (SHAP Analysis)
 
-> All 3 models agree on the top 2 drivers — high-confidence findings.
+> All 3 models agree on the top 2 drivers: high-confidence findings.
 
 | Rank | Feature | SHAP Value | Insight |
 |---|---|---|---|
@@ -168,6 +168,48 @@ customer-churn-prediction/
 | 4 | Support Calls (6m) | **+0.33** | More calls → higher churn risk |
 | 5 | Return Rate | **+0.18** | High returns → product friction |
 | 6 | NPS Score | **+0.16** | Low NPS → exit intent signal |
+
+---
+
+## 🌐 API Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/health` | API status check |
+| GET | `/model-info` | Model metrics and features |
+| POST | `/predict` | Churn prediction + confidence + SHAP |
+
+**Example request to `/predict`:**
+```json
+{
+  "contract_type": "Month-to-Month",
+  "customer_tenure_months": 3,
+  "monthly_spend_eur": 35.0,
+  "satisfaction_score": 2.5,
+  "nps_score": 4,
+  "num_support_calls_last_6m": 5,
+  "return_rate_pct": 12.0,
+  "num_purchases_last_3m": 1,
+  "payment_method": "Credit Card",
+  "region": "West",
+  "gender": "Male",
+  "has_premium_plan": 0
+}
+```
+
+**Example response:**
+```json
+{
+  "prediction": 1,
+  "risk_label": "High Risk",
+  "churn_probability": 0.87,
+  "confidence": 0.87,
+  "top_risk_factors": [
+    {"feature": "contract_type_encoded", "shap_value": 1.73},
+    {"feature": "customer_tenure_months", "shap_value": 1.04}
+  ]
+}
+```
 
 ---
 
@@ -229,48 +271,6 @@ chmod +x start.sh
 
 ---
 
-## 🌐 API Endpoints
-
-| Method | Endpoint | Description |
-|---|---|---|
-| GET | `/health` | API status check |
-| GET | `/model-info` | Model metrics and features |
-| POST | `/predict` | Churn prediction + confidence + SHAP |
-
-**Example request to `/predict`:**
-```json
-{
-  "contract_type": "Month-to-Month",
-  "customer_tenure_months": 3,
-  "monthly_spend_eur": 35.0,
-  "satisfaction_score": 2.5,
-  "nps_score": 4,
-  "num_support_calls_last_6m": 5,
-  "return_rate_pct": 12.0,
-  "num_purchases_last_3m": 1,
-  "payment_method": "Credit Card",
-  "region": "West",
-  "gender": "Male",
-  "has_premium_plan": 0
-}
-```
-
-**Example response:**
-```json
-{
-  "prediction": 1,
-  "risk_label": "High Risk",
-  "churn_probability": 0.87,
-  "confidence": 0.87,
-  "top_risk_factors": [
-    {"feature": "contract_type_encoded", "shap_value": 1.73},
-    {"feature": "customer_tenure_months", "shap_value": 1.04}
-  ]
-}
-```
-
----
-
 ## 🛠 Tech Stack
 
 | Tool | Purpose |
@@ -285,3 +285,7 @@ chmod +x start.sh
 | Streamlit | Web application frontend |
 
 ---
+
+## 👥 Team
+
+Haidar, Jad, Jaewoo, Mayur, Ricards
