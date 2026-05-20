@@ -4,6 +4,9 @@
 
 <img width="1363" height="804" alt="Screenshot 2026-05-15 at 03 23 16" src="https://github.com/user-attachments/assets/5a7ee8e5-661b-41d2-a7db-a2ed53687f29" />
 
+cd ~/Desktop/p5final 
+./start.sh
+
 ---
 
 ## 🧩 The Business Problem
