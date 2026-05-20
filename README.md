@@ -135,9 +135,9 @@ customer-churn-prediction/
 
 | Metric | Score |
 |---|---|
-| AUC-ROC | **0.900** |
+| AUC-ROC | **0.900** - distinguishes churners from non-churners|
 | Recall | **0.940** — catches 94% of actual churners |
-| Precision | **0.520** |
+| Precision | **0.520** - flagged customers truly churn |
 | Decision Threshold | **0.35** (optimised for recall) |
 | Selected Model | **Logistic Regression** |
 
